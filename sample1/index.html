@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>jkanbanサンプル</title>
+    <link rel="stylesheet" href="/jkanban.min.css">
+    <style>
+      .task {
+        background-color: #F4CE46;
+      }
+      .progress {
+        background-color: #2A92BF;
+      }
+      .done {
+        background-color: #00B961;
+      }
+    </style>
+</head>
+<body>
+  
+  <!-- ここにタスク管理ボードが表示される -->
+  <div id="myKanban"></div>
+  
+  
+  
+  <script src="/jkanban.min.js"></script>
+  <script>
+    
+    //初期状態のタスク管理ボード用JSONデータ
+    const defaultBoards = [
+      {
+          "id": "sample-board-1",
+          "title": "タスク",
+          "class": "task",
+          "item": [
+              { "title": "報告書の作成" },
+              { "title": "14時から打ち合わせ" }
+          ]
+      },
+
+      {
+          "id": "sample-board-2",
+          "title": "進行中",
+          "class": "progress",
+          "item": [{ "title": "○○案の企画書作成" }]
+      },
+
+      {
+          "id": "sample-board-3",
+          "title": "完了",
+          "class": "done",
+          "item": [{ "title": "日報の提出" }]
+      }
+    ];
+
+
+
+    //jKanbanのインスタンス作成
+    const kanban = new jKanban({
+      element         : '#myKanban',  //タスク管理ボードを表示するHTML要素
+      gutter          : '15px',       //ボード同士の間隔
+      widthBoard      : '250px',      //ボードのサイズ
+      boards          : defaultBoards,//初期状態のJSONデータ
+    });
+  
+  
+</script>
+</body>
+</html>
